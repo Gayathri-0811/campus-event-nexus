@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Bell, Calendar, Search, User } from "lucide-react";
+import { Bell, Calendar, BarChart2, Trophy, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -55,8 +55,21 @@ const Navbar: React.FC = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/calendar" className="px-4 py-2 hover:text-primary">
-                Calendar
+              <Link to="/calendar" className="px-4 py-2 hover:text-primary flex items-center gap-1">
+                <Calendar className="h-4 w-4" />
+                <span>Calendar</span>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/calendar?tab=dashboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
+                <BarChart2 className="h-4 w-4" />
+                <span>Dashboard</span>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/calendar?tab=leaderboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
+                <Trophy className="h-4 w-4" />
+                <span>Leaderboard</span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>

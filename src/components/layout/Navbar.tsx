@@ -61,13 +61,13 @@ const Navbar: React.FC = () => {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/calendar?tab=dashboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
+              <Link to="/dashboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
                 <BarChart2 className="h-4 w-4" />
                 <span>Dashboard</span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/calendar?tab=leaderboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
+              <Link to="/leaderboard" className="px-4 py-2 hover:text-primary flex items-center gap-1">
                 <Trophy className="h-4 w-4" />
                 <span>Leaderboard</span>
               </Link>

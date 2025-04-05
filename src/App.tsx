@@ -10,6 +10,8 @@ import CalendarPage from "./pages/CalendarPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import CreateEventPage from "./pages/CreateEventPage";
 import CategoryEventsPage from "./pages/CategoryEventsPage";
+import StudentDashboardPage from "./pages/StudentDashboardPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/events/:id" element={<EventDetailPage />} />
           <Route path="/events/category/:category" element={<CategoryEventsPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/dashboard" element={<StudentDashboardPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/create-event" element={<CreateEventPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

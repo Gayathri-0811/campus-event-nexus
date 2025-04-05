@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Event, EventCategory } from "@/types/event";
+import { Event, EventCategory, EventType } from "@/types/event";
 import { Progress } from "@/components/ui/progress";
 
 interface EventCardProps {
@@ -87,7 +87,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
       </CardContent>
       
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
-        {event.eventType === "FREE" ? (
+        {event.eventType === EventType.FREE ? (
           <Badge variant="outline" className="font-normal">Free</Badge>
         ) : (
           <Badge variant="outline" className="font-normal">${event.price}</Badge>

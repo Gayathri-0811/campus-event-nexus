@@ -5,8 +5,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getEvents } from "@/services/eventService";
 import { format } from "date-fns";
-import { Event, EventCategory } from "@/types/event";
+import { Event, EventCategory, EventType } from "@/types/event";
 import { cn } from "@/lib/utils";
+import { DayContent } from "react-day-picker";
 
 const EventCalendar: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
@@ -27,8 +28,8 @@ const EventCalendar: React.FC = () => {
   const eventsForSelectedDate = selectedDateStr ? eventsByDate[selectedDateStr] || [] : [];
 
   // Function to render event indicators in calendar cells
-  const renderEventIndicator = (day: Date) => {
-    const dateStr = format(day, "yyyy-MM-dd");
+  const renderEventIndicator = (date: Date) => {
+    const dateStr = format(date, "yyyy-MM-dd");
     const dayEvents = eventsByDate[dateStr] || [];
     
     if (dayEvents.length === 0) return null;
@@ -82,10 +83,10 @@ const EventCalendar: React.FC = () => {
           onSelect={setSelectedDate}
           className="rounded-md border"
           components={{
-            DayContent: ({ day }) => (
+            DayContent: (props) => (
               <div className="flex flex-col items-center">
-                <div>{format(day, "d")}</div>
-                {renderEventIndicator(day)}
+                <div>{format(props.date, "d")}</div>
+                {renderEventIndicator(props.date)}
               </div>
             ),
           }}
@@ -118,7 +119,7 @@ const EventCalendar: React.FC = () => {
                   </p>
                   
                   <div className="flex gap-1">
-                    {event.eventType === "FREE" ? (
+                    {event.eventType === EventType.FREE ? (
                       <Badge variant="outline" className="text-xs">Free</Badge>
                     ) : (
                       <Badge variant="outline" className="text-xs">${event.price}</Badge>

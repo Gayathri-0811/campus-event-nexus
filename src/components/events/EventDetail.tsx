@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { getEventById } from "@/services/eventService";
-import { EventCategory } from "@/types/event";
+import { EventCategory, EventType } from "@/types/event";
 import { useToast } from "@/hooks/use-toast";
 
 const EventDetail: React.FC = () => {
@@ -88,7 +88,7 @@ const EventDetail: React.FC = () => {
               <div className={getCategoryBadgeClass(event.category)}>
                 {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
               </div>
-              {event.eventType === "FREE" ? (
+              {event.eventType === EventType.FREE ? (
                 <Badge variant="secondary">Free</Badge>
               ) : (
                 <Badge variant="secondary">${event.price}</Badge>
